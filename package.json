@@ -1,0 +1,24 @@
+{
+  "name": "cctv-server-control-panel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AceXintense/CCTV-Server-Control-Panel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AceXintense/CCTV-Server-Control-Panel/issues"
+  },
+  "homepage": "https://github.com/AceXintense/CCTV-Server-Control-Panel#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "shelljs": "^0.7.7",
+    "socket.io": "^1.7.3"
+  }
+}

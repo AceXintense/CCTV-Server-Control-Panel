@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CCTV Control Panel</title>
+
+        <link rel="stylesheet" href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="resources/css/app.css">
+
+        <script src="resources/bower_components/angular/angular.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="resources/javascript/app.js"></script>
+
+    </head>
+    <body ng-controller="CCTVViewController">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6" ng-repeat="(id, cctvServerLink) in cctvServerLinks">
+                <div class="card">
+                    <h1>{{cctvServerLink.title}}</h1>
+                    <span class="state {{cctvServerLink.state}}"></span>
+                    <iframe src="http://192.168.0.22:11000" frameborder="0"></iframe>
+                    <p>{{getLinkForId(id)}}</p>
+                    <input type="text" ng-model="test">
+                    {{test}}
+                    <button class="btn btn-default">Refresh</button>
+                    <button class="btn btn-default" ng-click="up()">Up</button>
+                    <button class="btn btn-default" ng-click="down()">Down</button>
+                    <button class="btn btn-default" ng-click="left()">Left</button>
+                    <button class="btn btn-default" ng-click="right()">Right</button>
+                    <button class="btn btn-default" ng-click="reset()">Reset</button>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="card" ng-hide="newForm" ng-click="newCCTVLink()">
+                    <h1>Add New CCTV Link.</h1>
+                    <i class="fa fa-plus" aria-hidden="true" style="font-size: 8vw; text-align: center; width: 100%; padding: 20px 0;"></i>
+                </div>
+
+                <div class="card" ng-show="newForm">
+                    <h1>New CCTV Link</h1>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label for="title">Title</label>
+                            <input type="text" ng-model="title" class="form-control" id="title">
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="link">Link</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">http://</span>
+                                <input type="text" ng-model="link" class="form-control" id="link">
+                                <span class="input-group-addon">:{{port}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-spacing">
+                        <button class="btn btn-default" ng-click="finaliseCCTVLink()">Submit</button>
+                        <button class="btn btn-danger" ng-click="cancelCCTVLink()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>

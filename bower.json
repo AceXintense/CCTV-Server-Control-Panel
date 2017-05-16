@@ -1,0 +1,23 @@
+{
+  "name": "cctv-server-control-panel",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Sam Grew <shanker1210@hotmail.co.uk>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/AceXintense/CCTV-Server-Control-Panel",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.6.4",
+    "socket.io": "^1.7.3",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
